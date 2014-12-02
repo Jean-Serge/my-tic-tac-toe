@@ -11,6 +11,10 @@ extern int grille [TAILLE_GRILLE][TAILLE_GRILLE];
 /* Initialise une grille carré de taille TAILLE_GRILLE */
 extern void init_grille();
 
+/*	Place le symbôle symb dans la case de coordonnées [col ; ligne]
+	Les coordonnées sont indexées sur les indices du tableau.	*/
 extern int placer_symbole(int col, int ligne, char symb);
+
+extern void afficher_grille();
 
 #endif
