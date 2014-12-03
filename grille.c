@@ -30,6 +30,10 @@ void afficher_grille()
 	}
 }
 
+/**
+ *	Retourne l'index correspondant aux coordonnées 
+ *	indiquées.
+ */
 static int index_of(int col, int ligne)
 {
 	return col * LONGUEUR + ligne;
@@ -42,6 +46,7 @@ int placer_symbole(int col, int ligne, char symb)
 	/* Vérifie que la case est vide */
 	if(*(grille+index) != VIDE)
 		return 0;
+
 	*(grille+index) = symb;
 	return 1;
 }
@@ -83,5 +88,7 @@ int main(void)
 	afficher_grille();
 	assert(test_placer_symbole());
 	afficher_grille();
+
+	free(grille);
 	exit(EXIT_SUCCESS); 
 }
