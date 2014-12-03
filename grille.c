@@ -50,6 +50,16 @@ int placer_symbole(int col, int ligne, char symb)
 	*(grille+index) = symb;
 	return 1;
 }
+
+int est_nulle()
+{
+		int i;
+
+		for(i = 0 ; i < TAILLE_GRILLE ; i++)
+			if(*(grille+i) == VIDE) 
+				return 0;
+		return 1;
+}
 /* =======================  Fonctions de Test  ===================== */
 
 #define N 100
@@ -71,11 +81,30 @@ int test_init_grille()
 
 int test_placer_symbole()
 {
+	init_grille();
+
+	afficher_grille();
 	assert(placer_symbole(0, 0, 'X'));
 	assert(*grille == 'X');
 	assert(!placer_symbole(0, 0, 'O'));
 	assert(placer_symbole(2,2,'O'));
 	assert(*(grille+8) == 'O');
+	afficher_grille();
+
+	return 1;
+}
+
+int test_est_nulle()
+{
+	int i;
+	init_grille();
+
+	for(i = 0 ; i < TAILLE_GRILLE ; i++)
+	{
+		assert(!est_nulle());
+		*(grille+i) = 'X';		
+	}
+	assert(est_nulle());
 
 	return 1;
 }
@@ -85,10 +114,8 @@ int main(void)
 {
 	init_grille();
 	assert(test_init_grille()); 
-	afficher_grille();
 	assert(test_placer_symbole());
-	afficher_grille();
-
+	assert(test_est_nulle());
 	free(grille);
 	exit(EXIT_SUCCESS); 
 }
