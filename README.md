@@ -16,15 +16,16 @@ Fichiers présents :
 - README.md : ce fichier
 - grille.h : fichier contenant les prototypes des fonctions pour
 la manipulation d'une grille.
-
+- grille.c : implémentation des fonctions définies dans grille.h
 
 Implémentation 1 :
 ==================
 - L'application sera réalisée en mode console.
 - Les symbôles utilisés seront les caractère 'X' et 'O'
-- Les cases vides seront représentées par un espaces ' '
+- Les cases vides seront représentées par un espaces '_'
 - La grille sera une grille de caractères
 - Les joueurs seront créés automatiquement par le programme
 - La grille sera affichée à chaque tour
+- Le jeu continuera tant que la partie n'est ni gagnée ni nulle
 
 

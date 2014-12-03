@@ -29,9 +29,14 @@ extern void afficher_grille();
 
 /**
  *	Vérifie que la partie n'est pas nulle.
- *	i.e. : toutes les cases sont occupées 
- *	et la partie n'est pas gagnée.
+ *	i.e. : toutes les cases sont occupées et la partie n'est pas gagnée.
  */
 extern int est_nulle();
+
+/**
+ *	Vérifie di la partie est gagnée.
+ * i.e. : si LONGUEUR symbôles identiques sont alignés.
+ */
+extern int est_gagnee();
 
 #endif
