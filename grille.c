@@ -15,7 +15,7 @@ void init_grille()
 	
 	grille = (char *)malloc(TAILLE_GRILLE);
 	for(i =0 ; i < TAILLE_GRILLE ; i++)
-		*(grille+i) = '_';
+		*(grille+i) = VIDE;
 }
 
 void afficher_grille()
@@ -30,6 +30,21 @@ void afficher_grille()
 	}
 }
 
+static int index_of(int col, int ligne)
+{
+	return col * LONGUEUR + ligne;
+}
+
+int placer_symbole(int col, int ligne, char symb)
+{
+	const int index = index_of(col, ligne);
+	
+	/* Vérifie que la case est vide */
+	if(*(grille+index) != VIDE)
+		return 0;
+	*(grille+index) = symb;
+	return 1;
+}
 /* =======================  Fonctions de Test  ===================== */
 
 #define N 100
@@ -43,7 +58,7 @@ int test_init_grille()
 	r = rand() % (TAILLE_GRILLE); 
 	for(i = 0 ; i < N ; i++, r=rand() % TAILLE_GRILLE)
 	{
-		assert(*(grille+r) == '_');
+		assert(*(grille+r) == VIDE);
 	}
 		
 	return 1;
@@ -55,6 +70,13 @@ int main(void)
 {
 	init_grille();
 	assert(test_init_grille()); 
+	afficher_grille();
+
+	assert(placer_symbole(0, 0, 'X'));
+	assert(*grille == 'X');
+	assert(!placer_symbole(0, 0, 'O'));
+	assert(placer_symbole(2,2,'O'));
+	assert(*(grille+8) == 'O');
 	afficher_grille();
 	exit(EXIT_SUCCESS); 
 }

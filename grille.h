@@ -7,6 +7,7 @@
 
 #define LONGUEUR 3
 #define TAILLE_GRILLE LONGUEUR * LONGUEUR
+#define VIDE '_'
 
 
 /* ======================  Fonctions d'édition de la grille  ===================== */
@@ -19,6 +20,8 @@ extern void init_grille();
 /**
  *	Place le symbôle symb dans la case de coordonnées [col ; ligne]
  *	Les coordonnées sont indexées sur les indices du tableau.
+ *	Retourne 0 si la case est occupée. 
+ * 	On suppose les coordonnées valides.
  */
 extern int placer_symbole(int col, int ligne, char symb);
 
