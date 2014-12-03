@@ -22,7 +22,7 @@ Implémentation 1 :
 ==================
 - L'application sera réalisée en mode console.
 - Les symbôles utilisés seront les caractère 'X' et 'O'
-- Les cases vides seront représentées par un espacs ' '
+- Les cases vides seront représentées par un espaces ' '
 - La grille sera une grille de caractères
 - Les joueurs seront créés automatiquement par le programme
 - La grille sera affichée à chaque tour

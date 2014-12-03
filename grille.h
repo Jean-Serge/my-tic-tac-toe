@@ -1,9 +1,12 @@
 #ifndef H_GRILLE
 #define H_GRILLE
 
-#define TAILLE_GRILLE 3
+#include <stdlib.h>
+#include <stdio.h>
+#include <assert.h>
 
-int grille[TAILLE_GRILLE][TAILLE_GRILLE];
+#define LONGUEUR 3
+#define TAILLE_GRILLE LONGUEUR * LONGUEUR
 
 
 /* ======================  Fonctions d'édition de la grille  ===================== */
