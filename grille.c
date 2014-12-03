@@ -64,6 +64,16 @@ int test_init_grille()
 	return 1;
 }
 
+int test_placer_symbole()
+{
+	assert(placer_symbole(0, 0, 'X'));
+	assert(*grille == 'X');
+	assert(!placer_symbole(0, 0, 'O'));
+	assert(placer_symbole(2,2,'O'));
+	assert(*(grille+8) == 'O');
+
+	return 1;
+}
 
 /* ============================ Main ============================== */
 int main(void)
@@ -71,12 +81,7 @@ int main(void)
 	init_grille();
 	assert(test_init_grille()); 
 	afficher_grille();
-
-	assert(placer_symbole(0, 0, 'X'));
-	assert(*grille == 'X');
-	assert(!placer_symbole(0, 0, 'O'));
-	assert(placer_symbole(2,2,'O'));
-	assert(*(grille+8) == 'O');
+	assert(test_placer_symbole());
 	afficher_grille();
 	exit(EXIT_SUCCESS); 
 }
