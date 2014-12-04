@@ -38,4 +38,6 @@ Le but étant de pouvoir :
 - savoir si elle est gagnée ou nulle
 - afficher la grille
 
+Pour savoir si une grille est gagnante, il faut regarder si il y a un alignement
+de 3 symbôles identiques à l'intérieur (ligne, colonne, diagonale).
 Il faut également être en mesure de tester ces fonctionnalités.
