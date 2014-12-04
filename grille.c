@@ -82,6 +82,26 @@ static int verifier_ligne(int l)
 	return 1;
 }
 
+/**
+ *	Vérifier si la colonne indiquée est gagnante.
+ * 	i.e. : vérifie que la ligne est remplie avec le même symbôle non VIDE.
+ */
+static int verifier_colonne(int l)
+{
+	char c = *(grille + l);
+	int i;
+
+	if(c == VIDE)
+		return 0;
+
+	for(i = 0 ; i < LONGUEUR ; i++)
+	{
+		if(*(grille + l + i * LONGUEUR) != c)
+			return 0;
+	}
+
+	return 1;
+}
 int est_gagnee()
 {
 	int i, gagnee = 0;
@@ -160,6 +180,23 @@ int test_verifier_ligne()
 
 	return 1;
 }
+
+int test_verifier_colonne()
+{
+	int i;
+
+	init_grille();
+
+	for(i = 0 ; i < LONGUEUR ; i++)
+	{
+		assert(!verifier_colonne(1));
+		placer_symbole(1, i, 'O');
+	}
+	assert(verifier_colonne(1));
+
+	return 1;
+}
+
 /* ============================ Main ============================== */
 int main(void)
 {
@@ -168,6 +205,7 @@ int main(void)
 	assert(test_placer_symbole());
 	assert(test_est_nulle());
 	assert(test_verifier_ligne());
+	assert(test_verifier_colonne());
 	free(grille);
 	exit(EXIT_SUCCESS); 
 }
