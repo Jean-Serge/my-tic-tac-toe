@@ -154,9 +154,11 @@ int est_gagnee(char *vainqueur)
 	for(i = 0 ; i < LONGUEUR ; i++)
 	{
 		gagnee |= verifier_ligne(i, vainqueur);
+		gagnee |= verifier_colonne(i, vainqueur);
 		if(gagnee) 
 			return gagnee;
 	}
+	gagnee = verifier_diagonales(vainqueur);
 
 	return gagnee;
 }
@@ -165,7 +167,7 @@ int est_gagnee(char *vainqueur)
 
 #define N 100
 
-int test_init_grille()
+static int test_init_grille()
 {
 	int i, r;
 	srand(time(NULL));
@@ -180,7 +182,7 @@ int test_init_grille()
 	return 1;
 }
 
-int test_placer_symbole()
+static int test_placer_symbole()
 {
 	init_grille();
 
@@ -195,7 +197,7 @@ int test_placer_symbole()
 	return 1;
 }
 
-int test_est_nulle()
+static int test_est_nulle()
 {
 	int i;
 	init_grille();
@@ -210,7 +212,7 @@ int test_est_nulle()
 	return 1;
 }
 
-int test_verifier_ligne()
+static int test_verifier_ligne()
 {
 	int i;
 	char vainqueur;
@@ -227,7 +229,7 @@ int test_verifier_ligne()
 	return 1;
 }
 
-int test_verifier_colonne()
+static int test_verifier_colonne()
 {
 	int i;
 	char vainqueur;
@@ -244,7 +246,7 @@ int test_verifier_colonne()
 	return 1;
 }
 
-int test_verifier_diagonales()
+static int test_verifier_diagonales()
 {
 	char vainqueur;
 	init_grille();
@@ -260,6 +262,11 @@ int test_verifier_diagonales()
 	assert(vainqueur == 'O');
 
 	return 1;
+}
+
+static int test_est_gagnee()
+{
+
 }
 
 /* ============================ Main ============================== */
