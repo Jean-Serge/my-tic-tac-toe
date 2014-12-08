@@ -102,6 +102,43 @@ static int verifier_colonne(int l)
 
 	return 1;
 }
+
+static int verifier_diagonales()
+{
+	/* On vérifie la 1ère diagonale */
+	char c = *(grille);
+	int i, est_gagne = 1;
+
+	if(c != VIDE)
+	{
+		for(i = LONGUEUR+1 ; i < TAILLE_GRILLE ; i+= LONGUEUR +1)
+		{
+			if(*(grille+i) != c)
+			{
+				est_gagne = 0;
+				break;
+			}	
+		}
+		if(est_gagne)
+			return 1;
+	}
+
+	c = *(grille + LONGUEUR - 1);
+	if(c == VIDE)
+		return 0;
+
+	for(i = 2 * LONGUEUR -1 ; i < TAILLE_GRILLE ; i += LONGUEUR - 1)
+	{
+		if(*(grille + i) != c)
+		{
+			est_gagne = 0;
+			break;
+		}
+	}
+
+	return est_gagne;
+}
+
 int est_gagnee()
 {
 	int i, gagnee = 0;
@@ -116,6 +153,7 @@ int est_gagnee()
 
 	return gagnee;
 }
+
 /* =======================  Fonctions de Test  ===================== */
 
 #define N 100
@@ -197,6 +235,22 @@ int test_verifier_colonne()
 	return 1;
 }
 
+int test_verifier_diagonales()
+{
+	init_grille();
+
+	assert(!verifier_diagonales());
+	placer_symbole(0, 0, 'O');
+	placer_symbole(1, 1, 'O');
+	placer_symbole(2, 0, 'X');
+	placer_symbole(0, 2, 'W');
+	assert(!verifier_diagonales());
+	placer_symbole(2, 2, 'O');
+	assert(verifier_diagonales());
+
+	return 1;
+}
+
 /* ============================ Main ============================== */
 int main(void)
 {
@@ -206,6 +260,7 @@ int main(void)
 	assert(test_est_nulle());
 	assert(test_verifier_ligne());
 	assert(test_verifier_colonne());
+	assert(test_verifier_diagonales());
 	free(grille);
 	exit(EXIT_SUCCESS); 
 }

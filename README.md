@@ -23,6 +23,7 @@ ou par une défaite (toutes les cases sont remplies).
 Fichiers présents :
 ===================
 - README.md : ce fichier
+- TODO.md : fichier contenant les prochaines tâches à effectuer
 - grille.h : fichier contenant les prototypes des fonctions pour
 la manipulation d'une grille.
 - grille.c : implémentation des fonctions définies dans grille.h

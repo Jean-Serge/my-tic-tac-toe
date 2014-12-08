@@ -1,7 +1,6 @@
 Fonction à implémenter dans grille.c : 
 ======================================
-- est_gagnee
-	- vérifier diagonales
+- compléter fonction est_gagnee
 - Factoriser les fonctions de vérification dupliquées
 
 
