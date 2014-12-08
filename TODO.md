@@ -1,7 +1,10 @@
 Fonction à implémenter dans grille.c : 
 ======================================
-- compléter fonction est_gagnee
 - Factoriser les fonctions de vérification dupliquées
+
+
+- Concevoir la suite, c'est-à-dire un programme permettant de faire 
+une partie complète.
 
 
 

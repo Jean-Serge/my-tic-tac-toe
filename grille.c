@@ -266,10 +266,27 @@ static int test_verifier_diagonales()
 
 static int test_est_gagnee()
 {
+	char vainqueur;
+	init_grille();
+	assert(!est_gagnee(&vainqueur));
 
+	placer_symbole(0, 0, 'X');
+	placer_symbole(0, 1, 'O');
+	placer_symbole(0, 2, 'X');
+	assert(!est_gagnee(&vainqueur));
+	placer_symbole(1, 1, 'O');
+	placer_symbole(2, 1, 'O');
+	assert(est_gagnee(&vainqueur));
+	assert(vainqueur == 'O');
+
+	return 1;
 }
 
 /* ============================ Main ============================== */
+
+/**
+ *	Test l'ensemble des fonctions écrites dans ce fichier.
+ */
 int main(void)
 {
 	init_grille();
@@ -279,6 +296,7 @@ int main(void)
 	assert(test_verifier_ligne());
 	assert(test_verifier_colonne());
 	assert(test_verifier_diagonales());
+	assert(test_est_gagnee());
 	free(grille);
 	exit(EXIT_SUCCESS); 
 }
