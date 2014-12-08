@@ -41,4 +41,5 @@ Le but étant de pouvoir :
 
 Pour savoir si une grille est gagnante, il faut regarder si il y a un alignement
 de 3 symbôles identiques à l'intérieur (ligne, colonne, diagonale).
+Si la partie est gagnante on devra également savoir quel est le vainqueur (ou son symbôle).
 Il faut également être en mesure de tester ces fonctionnalités.

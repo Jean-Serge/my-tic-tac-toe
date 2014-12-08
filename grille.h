@@ -38,8 +38,9 @@ extern int est_nulle();
 
 /**
  *	Vérifie di la partie est gagnée.
- * i.e. : si LONGUEUR symbôles identiques sont alignés.
+ * 	i.e. : si LONGUEUR symbôles identiques sont alignés.
+ *	Si la partie est gagnée, le caractère gagnant est stocké dans vainqueur
  */
-extern int est_gagnee();
+extern int est_gagnee(char *vainqueur);
 
 #endif
