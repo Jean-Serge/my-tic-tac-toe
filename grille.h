@@ -9,6 +9,7 @@
 #define TAILLE_GRILLE LONGUEUR * LONGUEUR
 #define VIDE '_'
 
+char *grille;
 
 /* ======================  Fonctions d'édition de la grille  ===================== */
 
@@ -36,6 +37,9 @@ extern void afficher_grille();
  */
 extern int est_nulle();
 
+extern int verifier_colonne(int, char*);
+extern int verifier_ligne(int, char*);
+extern int verifier_diagonales(char *);
 /**
  *	Vérifie di la partie est gagnée.
  * 	i.e. : si LONGUEUR symbôles identiques sont alignés.
