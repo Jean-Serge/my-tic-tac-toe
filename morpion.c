@@ -17,8 +17,20 @@ int main(void)
 	/* Jeu */
 	printf("Début de la partie\n");
 	do{
+		printf("============= Début du tour ==============\n");
+
 		placer_symbole(rand()%LONGUEUR, rand()%LONGUEUR, courant);
 		courant = courant == j1 ? j2 : j1;
-	}while(!est_nulle() && !est_gagnee(&vainqueur));
+		afficher_grille();
+
+		printf("============== Fin du tour ===============\n");
+	} while(!est_nulle() && !est_gagnee(&vainqueur));
+
+	if(est_nulle())
+		printf("La partie se termine par un match nul.\n");
+	else
+		printf("La partie a été remportée par le symbole %c.\n", vainqueur);	
+
+	printf("Partie Terminée\n");
 	exit(EXIT_SUCCESS);
 }
