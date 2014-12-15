@@ -43,3 +43,20 @@ Pour savoir si une grille est gagnante, il faut regarder si il y a un alignement
 de 3 symbôles identiques à l'intérieur (ligne, colonne, diagonale).
 Si la partie est gagnante on devra également savoir quel est le vainqueur (ou son symbôle).
 Il faut également être en mesure de tester ces fonctionnalités.
+
+Implémentation 2 :
+==================
+Implémentation d'un main permettant de simuler un partie en choisissant aléatoirement 
+la case à marquer.
+Cette implémentation permet d'avoir le squelette d'une partie standard, celui-ci pourra 
+ensuite être modifié pour prendre en compte de nouvelles fonctionnalités.
+
+Algorithme d'une partie :
+- Initialisation d'une partie
+- Tant que la partie n'est ni gagnée ni nulle :
+	- Détermine aléatoirement les coordonnées de la case à marquer
+	- Place le symbôle courant dans la case correspondante
+	- Change le symbôle courant
+	- Affiche la grille
+- Affiche le résultat de la partie (et le caractère gagnant le cas échéant)
+
