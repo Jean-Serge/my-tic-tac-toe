@@ -22,11 +22,13 @@ ou par une défaite (toutes les cases sont remplies).
 
 Fichiers présents :
 ===================
-- README.md : ce fichier
-- TODO.md : fichier contenant les prochaines tâches à effectuer
-- grille.h : fichier contenant les prototypes des fonctions pour
+- README.md 	: ce fichier
+- TODO.md 		: fichier contenant les prochaines tâches à effectuer
+- grille.h 		: fichier contenant les prototypes des fonctions pour
 la manipulation d'une grille.
-- grille.c : implémentation des fonctions définies dans grille.h
+- grille.c 		: implémentation des fonctions définies dans grille.h
+- morpion.c (m) : implémentation de la partie de morpion
+- test.c (m)	: implémentation des fonctions de test
 
 
 Implémentation 1 :
@@ -44,6 +46,7 @@ de 3 symbôles identiques à l'intérieur (ligne, colonne, diagonale).
 Si la partie est gagnante on devra également savoir quel est le vainqueur (ou son symbôle).
 Il faut également être en mesure de tester ces fonctionnalités.
 
+
 Implémentation 2 :
 ==================
 Implémentation d'un main permettant de simuler un partie en choisissant aléatoirement 
@@ -60,3 +63,7 @@ Algorithme d'une partie :
 	- Affiche la grille
 - Affiche le résultat de la partie (et le caractère gagnant le cas échéant)
 
+
+Implémentation 3 :
+==================
+Modification du code pour ajouter la notion de joueur dans la partie.
