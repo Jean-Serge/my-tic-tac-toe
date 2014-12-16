@@ -1,6 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -ansi -pedantic -g
 
+INCLUDE = include
 BINARIES = morpion test
 
 all: morpion test
@@ -15,9 +16,9 @@ test: test.c grille.o
 	$(CC) $(CFLAGS) -o test test.c grille.o
 
 # Règles de construction des dépendances
-grille.o: grille.c grille.h
+grille.o: grille.c $(INCLUDE)/grille.h
 	$(CC) $(CFLAGS) -c grille.c
-joueur.o: joueur.c joueur.h
+joueur.o: joueur.c $(INCLUDE)/joueur.h
 	$(CC) $(CFLAGS) -c joueur.c
 
 .PHONY: clean

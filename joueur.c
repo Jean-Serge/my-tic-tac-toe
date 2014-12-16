@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-#include "joueur.h"
+#include "include/joueur.h"
 
 void init_joueur(char *nom, char symb, joueur_t *j)
 {

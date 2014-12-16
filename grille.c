@@ -1,6 +1,6 @@
 #include <time.h>
 
-#include "grille.h"
+#include "include/grille.h"
 
 /* =============  Fonctions de Manipulation de grille  ============= */
 

@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "grille.h"
-#include "joueur.h"
+#include "include/grille.h"
+#include "include/joueur.h"
 
 int main(void)
 {
