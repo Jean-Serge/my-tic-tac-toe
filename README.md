@@ -67,3 +67,13 @@ Algorithme d'une partie :
 Implémentation 3 :
 ==================
 Modification du code pour ajouter la notion de joueur dans la partie.
+Un joueur est composé :
+	- d'un nom
+	- d'un symbôle (celui placé dans la grille)
+
+Dans cette implémentation, on doit pouvoir :
+- Initialiser un joueur
+- Définir un joueur courant qui sera changé à la fin de chaque tour
+- Demander au début du tour au joueur courant de saisir des coordonnées valides
+- Utiliser ces coordonnées pour placer le symbôle voulu
+
