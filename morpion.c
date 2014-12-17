@@ -7,9 +7,10 @@
 
 int main(void)
 {
-	/* Initialisation */
 	joueur_t *j1, *j2, *courant;
 	char vainqueur;
+
+	/* Initialisation */
 	j1 = (joueur_t *) malloc(sizeof(joueur_t *));
 	j2 = (joueur_t *) malloc(sizeof(joueur_t *));
 
@@ -38,5 +39,11 @@ int main(void)
 		printf("La partie a été remportée par le symbole %c.\n", vainqueur);	
 
 	printf("Partie Terminée\n");
+
+	/* Libération mémoire */
+	free_grille();
+	free(j1);
+	free(j2);
+
 	exit(EXIT_SUCCESS);
 }

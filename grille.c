@@ -4,9 +4,6 @@
 
 /* =============  Fonctions de Manipulation de grille  ============= */
 
-/**
- * 	Initialise la grille avec des '_'.
- */ 
 void init_grille()
 {
 	int i;
@@ -14,6 +11,11 @@ void init_grille()
 	grille = (char *)malloc(TAILLE_GRILLE);
 	for(i =0 ; i < TAILLE_GRILLE ; i++)
 		*(grille+i) = VIDE;
+}
+
+void free_grille()
+{
+	free(grille);
 }
 
 void afficher_grille()

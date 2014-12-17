@@ -37,6 +37,10 @@ extern void afficher_grille();
  */
 extern int est_nulle();
 
+/**
+ *	Les 3 fonctions suivantes sont utilisées par est_gagnee pour 
+ * 	vérifier les différents cas de victoire.
+ */
 extern int verifier_colonne(int, char*);
 extern int verifier_ligne(int, char*);
 extern int verifier_diagonales(char *);
@@ -47,4 +51,8 @@ extern int verifier_diagonales(char *);
  */
 extern int est_gagnee(char *vainqueur);
 
+/**
+ *	Libère l'espace mémoire occupé par la grille.
+ */
+extern void free_grille();
 #endif
