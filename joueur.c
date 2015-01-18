@@ -9,6 +9,8 @@ void init_joueur(char *nom, char symb, joueur_t *j)
 /**
  *	Permet de lire un entier valide sur l'entrée standard.
  * 	Retourne la valeur saisie si elle est correcte, -1 sinon.
+ *	Les caractères suivant un chiffres seront ignorés (jusqu'au 
+ *	saut de ligne).
  */
 static int saisir_int()
 {
@@ -16,14 +18,21 @@ static int saisir_int()
 	int valeur = 0;
 
 	c = getchar();
+	/* On ignore les caractères suivants. */
+	while(getchar() != '\n');
+
+	/* On cherche une valeur à 1 chiffre */
 	if(!isdigit(c))
 	{
 		printf("Veuillez saisir un chiffre.\n");
 		return -1;
 	}
 	valeur = c - '0';
-	if(valeur >= 1 || valeur <= LONGUEUR)
+
+	/* On vérifie que ce chiffre est valide. */
+	if(valeur >= 1 && valeur <= LONGUEUR)
 		return valeur;
+
 	printf("Veuillez saisir une valeur valide (entre 1 et %d).\n", LONGUEUR);
 	return -1;
 }
