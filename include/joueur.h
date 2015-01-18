@@ -1,6 +1,12 @@
 #ifndef H_JOUEUR
 #define H_JOUEUR
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h> /* isdigit */
+
+#include "grille.h"
+
 typedef struct
 {
 	char symbole;
