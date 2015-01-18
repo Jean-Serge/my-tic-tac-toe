@@ -77,3 +77,8 @@ Dans cette implémentation, on doit pouvoir :
 - Demander au début du tour au joueur courant de saisir des coordonnées valides
 - Utiliser ces coordonnées pour placer le symbôle voulu
 
+Algo pour saisir coordonnées :
+- Demander à l'utilisateur de saisir des coordonnées
+- Vérifier qu'elles soient correctes
+	- Si oui les retourner
+	- Sinon afficher un message d'erreur et saisir coordonnées à nouveau
