@@ -39,11 +39,11 @@ static int saisir_int()
 
 int saisir_coord(unsigned int *col, unsigned int *ligne)
 {
-	printf("Veuillez saisir les coordonnées de la case à marquer sous la forme 'X Y' : \n");
+	printf("Veuillez saisir les coordonnées de la case à marquer.\n");
 	printf("Colonne : ");
 	while((*col = saisir_int()) == -1);
 
-	printf("\nLigne : ");
+	printf("Ligne : ");
 	while((*ligne = saisir_int()) == -1);
 		
 	return 1;
