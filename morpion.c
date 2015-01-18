@@ -9,6 +9,7 @@ int main(void)
 {
 	joueur_t *j1, *j2, *courant;
 	char vainqueur;
+	unsigned int col = 0, ligne = 0;
 
 	/* Initialisation */
 	j1 = (joueur_t *) malloc(sizeof(joueur_t *));
@@ -26,7 +27,10 @@ int main(void)
 	do{
 		printf("============= Début du tour ==============\n");
 
-		placer_symbole(rand()%LONGUEUR, rand()%LONGUEUR, courant->symbole);
+		saisir_coord(&col, &ligne);	
+		col --;
+		ligne --;
+		placer_symbole(col, ligne,courant->symbole);
 		courant = courant == j1 ? j2 : j1;
 		afficher_grille();
 
