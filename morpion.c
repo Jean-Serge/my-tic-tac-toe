@@ -27,13 +27,20 @@ int main(void)
 	do{
 		printf("============= Début du tour ==============\n");
 
+	debut:
 		saisir_coord(&col, &ligne);	
 		col --;
 		ligne --;
-		placer_symbole(col, ligne,courant->symbole);
-		courant = courant == j1 ? j2 : j1;
-		afficher_grille();
 
+		if(!placer_symbole(col, ligne,courant->symbole))
+		{
+			printf("Cette case est occupée.\n");
+			goto debut;
+		}
+		else
+			courant = courant == j1 ? j2 : j1;
+
+		afficher_grille();
 		printf("============== Fin du tour ===============\n");
 	} while(!est_nulle() && !est_gagnee(&vainqueur));
 
