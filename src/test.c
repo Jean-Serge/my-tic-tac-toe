@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <time.h>
 
-#include "include/grille.h"
+#include "grille.h"
 
 
 /* =======================  Fonctions de Test  ===================== */

@@ -1,25 +1,27 @@
 CC = gcc
 CFLAGS = -Wall -ansi -pedantic -g
 
-INCLUDE = include
+INCLUDE = ./include/
 BINARIES = *.bin
+SRCDIR = src/
+LIBS = -I${INCLUDE}
 
 all: morpion test
 
 
 # Création de l'exécutable final
-morpion: morpion.c grille.o joueur.o
-	$(CC) $(CFLAGS) -o morpion.bin morpion.c grille.o joueur.o
+morpion: ${SRCDIR}morpion.c grille joueur
+	$(CC) $(CFLAGS) -o morpion.bin ${SRCDIR}morpion.c grille.o joueur.o ${LIBS}
 
 # Construction de l'exécutable de test	
-test: test.c grille.o
-	$(CC) $(CFLAGS) -o test.bin test.c grille.o
+test: ${SRCDIR}test.c grille
+	$(CC) $(CFLAGS) -o test.bin ${SRCDIR}test.c grille.o ${LIBS}
 
 # Règles de construction des dépendances
-grille.o: grille.c $(INCLUDE)/grille.h
-	$(CC) $(CFLAGS) -c grille.c
-joueur.o: joueur.c $(INCLUDE)/joueur.h
-	$(CC) $(CFLAGS) -c joueur.c
+grille: ${SRCDIR}grille.c $(INCLUDE)grille.h
+	$(CC) $(CFLAGS) -c ${SRCDIR}grille.c ${LIBS}
+joueur: ${SRCDIR}joueur.c $(INCLUDE)joueur.h
+	$(CC) $(CFLAGS) -c ${SRCDIR}joueur.c ${LIBS}
 
 .PHONY: clean
 clean: 
