@@ -47,7 +47,7 @@ int main(void)
 	if(est_nulle())
 		printf("La partie se termine par un match nul.\n");
 	else
-		printf("La partie a été remportée par le symbole %c.\n", vainqueur);	
+		printf("La partie a été remportée par %s.\n", vainqueur == j1->symbole ? j1->nom : j2->nom);	
 
 	printf("Partie Terminée\n");
 
