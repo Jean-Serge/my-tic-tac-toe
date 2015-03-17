@@ -7,7 +7,8 @@ SRCDIR = src/
 BINDIR = bin/
 LIBS = -I${INCLUDE}
 
-all: morpion test
+all: morpion
+
 
 
 # Création de l'exécutable final
