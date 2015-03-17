@@ -6,28 +6,28 @@
 
 void init_grille()
 {
-	int i;
+  int i;
 	
-	grille = (char *)malloc(TAILLE_GRILLE);
-	for(i =0 ; i < TAILLE_GRILLE ; i++)
-		*(grille+i) = VIDE;
+  grille = (char *)malloc(TAILLE_GRILLE);
+  for(i =0 ; i < TAILLE_GRILLE ; i++)
+    *(grille+i) = VIDE;
 }
 
 void free_grille()
 {
-	free(grille);
+  free(grille);
 }
 
 void afficher_grille()
 {
-	int i;
+  int i;
 
-	for(i = 0 ; i < TAILLE_GRILLE ; i++)
-	{
-		printf("%c", *(grille+i));
-		if(i % LONGUEUR == LONGUEUR-1)
-			printf("\n");
-	}
+  for(i = 0 ; i < TAILLE_GRILLE ; i++)
+    {
+      printf("%c", *(grille+i));
+      if(i % LONGUEUR == LONGUEUR-1)
+	printf("\n");
+    }
 }
 
 /**
@@ -36,29 +36,29 @@ void afficher_grille()
  */
 static int index_of(int col, int ligne)
 {
-	return col + LONGUEUR * ligne;
+  return col + LONGUEUR * ligne;
 }
 
 int placer_symbole(int col, int ligne, char symb)
 {
-	const int index = index_of(col, ligne);
+  const int index = index_of(col, ligne);
 	
-	/* Vérifie que la case est vide */
-	if(*(grille+index) != VIDE)
-		return 0;
+  /* Vérifie que la case est vide */
+  if(*(grille+index) != VIDE)
+    return 0;
 
-	*(grille+index) = symb;
-	return 1;
+  *(grille+index) = symb;
+  return 1;
 }
 
 int est_nulle()
 {
-		int i;
+  int i;
 
-		for(i = 0 ; i < TAILLE_GRILLE ; i++)
-			if(*(grille+i) == VIDE) 
-				return 0;
-		return 1;
+  for(i = 0 ; i < TAILLE_GRILLE ; i++)
+    if(*(grille+i) == VIDE) 
+      return 0;
+  return 1;
 }
 
 /**
@@ -67,20 +67,20 @@ int est_nulle()
  */
 int verifier_ligne(int l, char *vainqueur)
 {
-	char c = *(grille + l * LONGUEUR);
-	int i;
+  char c = *(grille + l * LONGUEUR);
+  int i;
 
-	if(c == VIDE)
-		return 0;
+  if(c == VIDE)
+    return 0;
 
-	for(i = 0 ; i < LONGUEUR ; i++)
-	{
-		if(*(grille + l * LONGUEUR + i) != c)
-			return 0;
-	}
+  for(i = 0 ; i < LONGUEUR ; i++)
+    {
+      if(*(grille + l * LONGUEUR + i) != c)
+	return 0;
+    }
 
-	*vainqueur = c;
-	return 1;
+  *vainqueur = c;
+  return 1;
 }
 
 /**
@@ -89,77 +89,77 @@ int verifier_ligne(int l, char *vainqueur)
  */
 int verifier_colonne(int l, char *vainqueur)
 {
-	char c = *(grille + l);
-	int i;
+  char c = *(grille + l);
+  int i;
 
-	if(c == VIDE)
-		return 0;
+  if(c == VIDE)
+    return 0;
 
-	for(i = 0 ; i < LONGUEUR ; i++)
-	{
-		if(*(grille + l + i * LONGUEUR) != c)
-			return 0;
-	}
+  for(i = 0 ; i < LONGUEUR ; i++)
+    {
+      if(*(grille + l + i * LONGUEUR) != c)
+	return 0;
+    }
 
-	*vainqueur = c;
-	return 1;
+  *vainqueur = c;
+  return 1;
 }
 
 int verifier_diagonales(char *vainqueur)
 {
-	/* On vérifie la 1ère diagonale */
-	char c = *(grille);
-	int i, est_gagne = 1;
+  /* On vérifie la 1ère diagonale */
+  char c = *(grille);
+  int i, est_gagne = 1;
 
-	if(c != VIDE)
+  if(c != VIDE)
+    {
+      for(i = LONGUEUR+1 ; i < TAILLE_GRILLE ; i+= LONGUEUR +1)
 	{
-		for(i = LONGUEUR+1 ; i < TAILLE_GRILLE ; i+= LONGUEUR +1)
-		{
-			if(*(grille+i) != c)
-			{
-				est_gagne = 0;
-				break;
-			}	
-		}
-		if(est_gagne)
-		{
-			*vainqueur = c;
-			return 1;
-		}
+	  if(*(grille+i) != c)
+	    {
+	      est_gagne = 0;
+	      break;
+	    }	
 	}
-
-	c = *(grille + LONGUEUR - 1);
-	if(c == VIDE)
-		return 0;
-
-	for(i = 2 * LONGUEUR -1 ; i < TAILLE_GRILLE ; i += LONGUEUR - 1)
+      if(est_gagne)
 	{
-		if(*(grille + i) != c)
-		{
-			est_gagne = 0;
-			break;
-		}
+	  *vainqueur = c;
+	  return 1;
 	}
+    }
 
-	if(est_gagne)
-		*vainqueur = c;
-	return est_gagne;
+  c = *(grille + LONGUEUR - 1);
+  if(c == VIDE)
+    return 0;
+
+  for(i = 2 * LONGUEUR -1 ; i < TAILLE_GRILLE ; i += LONGUEUR - 1)
+    {
+      if(*(grille + i) != c)
+	{
+	  est_gagne = 0;
+	  break;
+	}
+    }
+
+  if(est_gagne)
+    *vainqueur = c;
+  return est_gagne;
 }
 
 int est_gagnee(char *vainqueur)
 {
-	int i, gagnee = 0;
+  int i, gagnee = 0;
 
-	/* On vérifie les lignes */
-	for(i = 0 ; i < LONGUEUR ; i++)
-	{
-		gagnee |= verifier_ligne(i, vainqueur);
-		gagnee |= verifier_colonne(i, vainqueur);
-		if(gagnee) 
-			return gagnee;
-	}
-	gagnee = verifier_diagonales(vainqueur);
-
+  /* On vérifie les lignes */
+  for(i = 0 ; i < LONGUEUR ; i++)
+    {
+      gagnee |= verifier_ligne(i, vainqueur);
+      gagnee |= verifier_colonne(i, vainqueur);
+      if(gagnee) 
 	return gagnee;
+    }
+  gagnee = verifier_diagonales(vainqueur);
+
+  return gagnee;
 }
 
