@@ -76,6 +76,7 @@ Dans cette implémentation, on doit pouvoir :
 - Définir un joueur courant qui sera changé à la fin de chaque tour
 - Demander au début du tour au joueur courant de saisir des coordonnées valides
 - Utiliser ces coordonnées pour placer le symbôle voulu
+- Modifier le main pour prendre en compte les joueurs
 
 Algo pour saisir coordonnées :
 - Demander à l'utilisateur de saisir des coordonnées
